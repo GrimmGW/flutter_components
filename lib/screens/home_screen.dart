@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_components/router/app_routes.dart';
 
 class HomeScreen extends StatelessWidget {
 
@@ -13,20 +14,23 @@ class HomeScreen extends StatelessWidget {
         title: Text("WhatsApp"),
       ),
       body: ListView.separated(
-        itemCount: juegos.length,
+        itemCount: AppRoutes.menuOptions.length,
         separatorBuilder: (_, __) {
           return Divider();
         },
         itemBuilder: (BuildContext context, int i) {
           return ListTile(
-            title: Text(juegos[i]),
-            subtitle: Text("Este es un videojuego"),
-            leading: Icon(Icons.gamepad_rounded),
+            title: Text(AppRoutes.menuOptions[i].name),
+            leading: Icon(AppRoutes.menuOptions[i].icon),
             onTap: () {
-              Navigator.pushNamed(context, '/card');
+              Navigator.pushNamed(context, AppRoutes.menuOptions[i].route);
             },
           );
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){},
+        child: Icon(Icons.add),
       ),
     );
   }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'screens/screens.dart';
-
+import 'package:flutter_components/router/app_routes.dart';
+import 'package:flutter_components/themes/app_theme.dart';
 
 void main() => runApp(const MyApp());
 
@@ -13,22 +12,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      initialRoute: '/home',
-      routes: {
-
-        '/home' : (BuildContext context) => HomeScreen(),
-        '/alert' : (BuildContext context) => AlertScreen(),
-        '/card' : (BuildContext context) => CardScreen(),
-
-      },
-      theme: ThemeData.dark().copyWith(
-
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.green[900],
-          centerTitle: true
-        )
-
-      ),
+      initialRoute: AppRoutes.initialRoute,
+      routes: AppRoutes.getAppRoutes(),
+      theme: AppTheme.lightTheme
     );
   }
 }
