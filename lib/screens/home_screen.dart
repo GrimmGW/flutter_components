@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("WhatsApp"),
+        title: Text("Menu principal"),
       ),
       body: ListView.separated(
         itemCount: AppRoutes.menuOptions.length,
